@@ -1,0 +1,44 @@
+The work I have done till now revolves just in understanding the existing literature, setting up code environment and  testing a small script for simple motion detection.
+
+1. Literature
+
+The task that we have which I understand is how to detect violence in videos. The most important literature on this I found is present here-
+
+https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0203668
+
+This work is a classic use of Machine Learning to label a video as violent or not. Works that builds on this paper is as follows.
+
+https://www.cs.cmu.edu/~rahuls/pub/caip2011-rahuls.pdf
+
+The major violence detection occurs through the sequence-
+a. Motion Detection
+b. Feature determination (interaction within a detected motion)
+c. Feature extraction using a Bag of Words (BOW). This strategy has both advantages and disadvantages as it is agnostic to relative presence of the pixels beingselected for violence. 
+d. The extracted vectors of pixels are passed into a classification algorithm like SVM to classify the video as violent or not.
+
+My observations-
+
+a and b are inevitable process in detecting surveillance videos. In part a, motion detection happens through relative pixel change for a threshold contour in moving frames. I have started my work on this. 
+
+b is currently where multiple iterations can be done on improvement. Firstly, the interaction determined in the literature I reviewed used Histogram based feature extraction techniques. 
+
+In d, SVM algorithm is the safest algorithm that computes global optimized classification. Other algorithms like Gaussian mixture models can be used.
+
+Also, the other works focus on including noises, screech sound, gunshots to include with the motion detected feature.
+
+
+2. Code Environment
+
+After careful consideration, I am using openCV in Pyhton to detect motion. In the above said section b, I am planning to incroporate angles generated from OpenPose along with/ instead of Histogram model in subsequent week.
+
+3. Script
+
+Currently, I tried to test two RUPTLY videos to sense for motion. The video fairly detects the frames. However, the contour threshold should be altered for a CCTV like video as it captures mass movements. Based on what is defined as violence, training data can be generated through a scraping script.
+
+python m_detect.py
+
+Is the script I am testing.
+
+4. I will send the questions I have at this point in Slack.
+
+ 
